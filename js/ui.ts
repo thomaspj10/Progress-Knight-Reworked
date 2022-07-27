@@ -104,7 +104,7 @@ function formatCoins(coins: number, element) {
 function updateSidebarText() {
     document.getElementById("ageDisplay").textContent = "" + Math.floor(game.getSave().days / 365)
     document.getElementById("dayDisplay").textContent = "" + Math.floor(game.getSave().days - Math.floor(game.getSave().days / 365) * 365)
-    document.getElementById("lifespanDisplay").textContent = (baseLifeSpan * Effect.getTotalEffect(EffectType.LIFESPAN)).toFixed(0)
+    document.getElementById("lifespanDisplay").textContent = (BASE_LIFE_SPAN * Effect.getTotalEffect(EffectType.LIFESPAN)).toFixed(0)
     document.getElementById("pauseButton").textContent = game.getSave().paused ? "Play" : "Pause"
 
     const expense = _game.getExpense()
@@ -163,7 +163,7 @@ function setSignDisplay() {
 
 // Html component requirements.
 const ageRequirementText = new HtmlElementRequirement(document.getElementById("deathText"))
-ageRequirementText.addRequirement(() => game.getSave().days / 365 >= baseLifeSpan * Effect.getTotalEffect(EffectType.LIFESPAN))
+ageRequirementText.addRequirement(() => game.getSave().days / 365 >= BASE_LIFE_SPAN * Effect.getTotalEffect(EffectType.LIFESPAN))
 
 const evilDisplay = new HtmlElementRequirement(document.getElementById("evilInfo"))
 evilDisplay.addRequirement(() => game.getSave().currency.evil > 0)

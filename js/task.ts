@@ -19,7 +19,7 @@ abstract class Task implements ITask, ITickable, IRenderable, ISaveable {
         this.category = category
 
         gameManager.registerISaveable(this)
-        gameManager.registerTickable(this)
+        gameManager.registerITickable(this)
     }
 
     public getName(): string {
@@ -60,10 +60,10 @@ abstract class Task implements ITask, ITickable, IRenderable, ISaveable {
 
 abstract class ExperienceTask extends Task {
 
-    protected level: number = 0
-    protected maxLevel: number = 0
+    public level: number = 0
+    public maxLevel: number = 0
+    public experience: number = 0
     private difficultyMultiplier: number = 100
-    protected experience: number = 0
 
     public setDifficultyMultiplier(difficultyMultiplier: number): void {
         this.difficultyMultiplier = difficultyMultiplier
@@ -291,7 +291,7 @@ class Item extends Task implements IItem {
     private effectText: string
     
     protected cost: number
-    protected selected: boolean = false
+    public selected: boolean = false
 
     private row: HTMLElement
     private categoryType: ItemCategoryType

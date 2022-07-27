@@ -5,7 +5,7 @@ class HtmlElementRequirement implements IRenderable {
 
     constructor(element: HTMLElement) {
         this.element = element
-        gameManager.registerRenderable(this)
+        gameManager.registerIRenderable(this)
     }
 
     public addRequirement(requirement: () => boolean) {
@@ -52,7 +52,7 @@ abstract class Requirement implements ISaveable {
     }
 
     private testRequirement() {
-        if (this.completed) return
+        // if (this.completed) return
         this.completed = this.requirement()
     }
 

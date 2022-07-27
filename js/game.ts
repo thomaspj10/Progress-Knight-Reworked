@@ -1,3 +1,8 @@
+const UPDATE_SPEED = 20
+const BASE_LIFE_SPAN = 60
+const STARTING_AGE = 18
+const DAYS_PER_SECOND = 6
+
 enum GameDifficulty {
     EASY = 1.0098,
     DEFAULT = 1.01,
@@ -66,11 +71,11 @@ class GameManager {
 
     private isInitialRender: boolean = true
 
-    public registerTickable(tickable: ITickable): void {
+    public registerITickable(tickable: ITickable): void {
         this.tickables.push(tickable)
     }
 
-    public registerRenderable(renderable: IRenderable): void {
+    public registerIRenderable(renderable: IRenderable): void {
         this.renderables.push(renderable)
     }
 
@@ -122,6 +127,7 @@ class Game implements IGame {
     private difficulty: GameDifficulty = GameDifficulty.DEFAULT
 
     private categories: Category<unknown>[] = []
+    private rebirthOptions: Array<RebirthOption> = []
 
     public saveData: GameData = {
         currency: {
@@ -133,7 +139,7 @@ class Game implements IGame {
             selectedJob: "Burger Flipper",
             selectedSkill: "Study Skills"
         },
-        days: 18 * 365,
+        days: STARTING_AGE * 365,
         paused: false,
         isTimeWarping: false,
         tasks: {},
@@ -205,12 +211,40 @@ class Game implements IGame {
         return expense
     }
 
+    public doRebirth(rebirthName: string): void {
+        for (const rebirthOption of this.rebirthOptions) {
+            if (rebirthOption.getName() == rebirthName) {
+                rebirthOption.rebirth()
+                return
+            }
+        }
+    }
+
+    public exportSave(): string {
+        return btoa(JSON.stringify(this.saveData))
+    }
+
+    public importSave(save: string): void {
+        try {
+            const data = JSON.parse(atob(save))
+            this.saveData = data
+            gameManager.save()
+            location.reload()
+        } catch(e) {
+            alert("The save data you tried to import is not valid!")
+        }
+    } 
+
     public setDifficulty(difficulty: GameDifficulty) {
         this.difficulty = difficulty
     }
 
     public addCategory(category: Category<unknown>) {
         this.categories.push(category)
+    }
+
+    public addRebirthOption(rebirthOption: RebirthOption) {
+        this.rebirthOptions.push(rebirthOption)
     }
 
     public hard_reset() {
@@ -231,8 +265,8 @@ const game = _game as IGame
 
 function applySpeed(value: number) {
     if (game.getSave().paused) return 0
-    if (game.getSave().days >= baseLifeSpan * Effect.getTotalEffect(EffectType.LIFESPAN) * 365) return 0
+    if (game.getSave().days >= BASE_LIFE_SPAN * Effect.getTotalEffect(EffectType.LIFESPAN) * 365) return 0
 
-    return value / updateSpeed * daysPerSecond
+    return value / UPDATE_SPEED * DAYS_PER_SECOND
         * Effect.getTotalEffect(EffectType.GAMESPEED)
 }

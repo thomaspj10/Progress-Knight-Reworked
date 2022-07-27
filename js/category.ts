@@ -27,7 +27,7 @@ abstract class Category<T> implements ICategory<T>, IRenderable {
         this.color = color
         this.tableId = tableId
         _game.addCategory(this)
-        gameManager.registerRenderable(this)
+        gameManager.registerIRenderable(this)
         init(this)
     }
 

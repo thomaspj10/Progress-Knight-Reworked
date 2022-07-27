@@ -313,8 +313,8 @@
                     <ul>
                         <li>
                             <h2>Import/export save</h2>
-                            <button class="w3-button button" onClick="importGameData()">Import</button>
-                            <button class="w3-button button" onClick="exportGameData()">Export</button>
+                            <button class="w3-button button" onClick="game.importSave(document.getElementById('importExportBox').value)">Import</button>
+                            <button class="w3-button button" onClick="document.getElementById('importExportBox').value = game.exportSave()">Export</button>
                             <form style="margin-top: 16px"> 
                                 <input id="importExportBox" type="text" style="width:300px; height:30px"></input>
                             </form>
@@ -341,6 +341,7 @@
 <script type="text/javascript" src="js/task.js"></script>
 <script type="text/javascript" src="js/effect.js"></script>
 <script type="text/javascript" src="js/requirement.js"></script>
+<script type="text/javascript" src="js/rebirth.js"></script>
 
 <script type="text/javascript" src="js/mod.js"></script>
 

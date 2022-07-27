@@ -403,3 +403,28 @@ new Effect(EffectType.HAPPINESS, () => {
 new Effect(EffectType.ENERGY, () => {
     return Effect.getTotalEffect(EffectType.HAPPINESS) * Effect.getTotalEffect(EffectType.HEALTH)
 })
+
+new RebirthOption("regularRebirth", () => {
+    for (const job of game.getTasksByType(CategoryType.JOB)) {
+        if (job.maxLevel < job.level)
+            job.maxLevel = job.level
+        job.level = 0
+        job.experience = 0
+    }
+    for (const skill of game.getTasksByType(CategoryType.SKILL)) {
+        if (skill.maxLevel < skill.level)
+        skill.maxLevel = skill.level
+        skill.level = 0
+        skill.experience = 0
+    }
+    for (const item of game.getTasksByType(CategoryType.ITEM)) {
+        item.selected = false
+    }
+
+    game.getSave().days = STARTING_AGE * 365
+    game.getSave().currency.coins = 0
+    game.getSave().paused = true
+
+    game.getSave().ui.selectedJob = "Burger Flipper"
+    game.getSave().ui.selectedSkill = "Study Skills"
+})
