@@ -78,7 +78,7 @@ abstract class ExperienceTask extends Task {
     }
 
     public getMaxExperience(): number {
-        return Math.round(this.difficultyMultiplier * (this.level + 1) * Math.pow(game.getDifficulty(), this.level))
+        return Math.round(game.getDifficulty() * this.difficultyMultiplier * (this.level + 1) * Math.pow(1.0101, this.level))
     }
 
     public getRemainingExperience(): number {

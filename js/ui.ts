@@ -140,6 +140,8 @@ function updateSidebarText() {
     const skillProgressBar = quickTaskDisplayElement.getElementsByClassName("skill")[0]
     skillProgressBar.getElementsByClassName("name")[0].textContent = game.getCurrentSkill().getName() + " lvl " + game.getCurrentSkill().getLevel();
     (<HTMLElement> skillProgressBar.getElementsByClassName("progressFill")[0]).style.width = game.getCurrentSkill().getCurrentExperience() / game.getCurrentSkill().getMaxExperience() * 100 + "%"
+
+    document.getElementById("currentDifficulty").innerText = "Current difficulty: " + GameDifficulty[game.getDifficulty()].toLowerCase()
 }
 
 function setSignDisplay() {

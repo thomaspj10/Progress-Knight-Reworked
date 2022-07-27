@@ -241,6 +241,15 @@
                             </a>
                         </li>
                         <li>
+                            <h2>Change difficulty</h2>
+                            <p><span style="color: red;">Warning:</span> Changing the difficulty may affect the balance of the game and may ruin the game for you. This setting is for people who "have better things to do than wait for a bar to go up"</p>
+                            <p id="currentDifficulty"></p>
+
+                            <button class="w3-button button" onClick="game.setDifficulty(GameDifficulty.EASY)">Easy</button>
+                            <button class="w3-button button" onClick="game.setDifficulty(GameDifficulty.DEFAULT)">Default</button>
+                            <button class="w3-button button" onClick="game.setDifficulty(GameDifficulty.HARD)">Hard</button>
+                        </li>
+                        <li>
                             <h2>Hard reset game</h2>
                             <button class="w3-button button w3-red" onClick="_game.hard_reset()">Reset</button>
                         </li>

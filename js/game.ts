@@ -4,9 +4,9 @@ const STARTING_AGE = 18
 const DAYS_PER_SECOND = 6
 
 enum GameDifficulty {
-    EASY = 1.0098,
-    DEFAULT = 1.01,
-    HARD = 1.0102
+    EASY = 0.9,
+    DEFAULT = 1,
+    HARD = 1.1
 }
 
 enum CurrencyType {
@@ -30,6 +30,7 @@ interface GameData {
         selectedJob: string,
         selectedSkill: string
     },
+    difficulty: GameDifficulty
     days: number,
     paused: boolean,
     isTimeWarping: boolean,
@@ -125,8 +126,6 @@ class GameManager {
 
 class Game implements IGame {
 
-    private difficulty: GameDifficulty = GameDifficulty.DEFAULT
-
     private categories: Category<unknown>[] = []
     private rebirthOptions: Array<RebirthOption> = []
 
@@ -140,6 +139,7 @@ class Game implements IGame {
             selectedJob: "Burger Flipper",
             selectedSkill: "Study Skills"
         },
+        difficulty: GameDifficulty.DEFAULT,
         days: STARTING_AGE * 365,
         paused: false,
         isTimeWarping: false,
@@ -152,7 +152,7 @@ class Game implements IGame {
     }
 
     public getDifficulty(): GameDifficulty {
-        return this.difficulty
+        return this.getSave().difficulty
     }
 
     public getTaskByName(name: string): Task {
@@ -237,7 +237,7 @@ class Game implements IGame {
     } 
 
     public setDifficulty(difficulty: GameDifficulty) {
-        this.difficulty = difficulty
+        this.getSave().difficulty = difficulty
     }
 
     public addCategory(category: Category<unknown>) {
