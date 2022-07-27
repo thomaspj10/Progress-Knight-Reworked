@@ -96,7 +96,6 @@ abstract class ExperienceTask extends Task {
     public getExperienceGain() {
         return 10 
             * Effect.getTotalEffect(EffectType.EXPERIENCE, this)
-            * Effect.getTotalEffect(EffectType.ENERGY)
             * this.getMaxLevelMultiplier()
     }
 

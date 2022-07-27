@@ -21,7 +21,7 @@ class HtmlElementRequirement implements IRenderable {
 
     public render() {
         if (this.hasCompletedRequirements()) {
-            this.element.style.display = "block"
+            this.element.style.display = ""
         } else {
             this.element.style.display = "none"
         }

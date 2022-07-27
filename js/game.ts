@@ -48,6 +48,7 @@ interface IGame {
     getTasksByType<T extends CategoryType>(type: T): TaskType<T>[]
     getIncome(): number
     getExpense(): number
+    doRebirth(rebirthName: string): void
 }
 
 interface ITickable {
@@ -110,7 +111,7 @@ class GameManager {
         updateSidebarText()
         game.getSave().days += applySpeed(1)
 
-        if (game.getSave().currency.coins <= 0) {
+        if (game.getSave().currency.coins < 0) {
             game.getSave().currency.coins = 0
 
             for (const item of game.getTasksByType(CategoryType.ITEM))

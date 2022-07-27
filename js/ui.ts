@@ -96,7 +96,10 @@ function formatCoins(coins: number, element) {
         i += 1
     }
 
-    if (leftOver == 0 && coins > 0) {element.children[3].textContent = ""; return}
+    if (leftOver == 0 && coins >= 1) {
+        element.children[3].textContent = ""
+        return
+    }
     element.children[3].textContent = Math.floor(leftOver) + "c"
     element.children[3].style.color = colors["c"]
 }

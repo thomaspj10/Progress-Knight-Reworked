@@ -219,93 +219,8 @@
                 </div>
 
                 <div class="tab" id="rebirth">
-                    <ul>
-                        <li style="margin: 8px;">
-                            You stumble across a strange looking amulet on your 25th birthday. It does not look like
-                            it has any worth on the market given that it's made from cheap-looking copper. However, you
-                            feel a weird urge to keep the amulet, so you slip it into your pocket for safekeeping.
-
-                        </li>
-                        <li style="margin: 8px;" id="rebirthNote1">
-                            On your 45th birthday, you feel the amulet shiver uncontrollably in your pocket. You take it
-                            out and the constant shivering suddenly stops. More to your bizarre surprise, you notice
-                            a strange etching on the centre of the amulet.
-                        </li>
-                        <li style="margin: 8px;" id="rebirthNote2">
-                            <div style="margin-bottom: 8px">
-                                On your 65th birthday, you once again encounter the strange, unexplained shivering from your
-                                amulet. But this time, a living eyeball emerges from the centre. Although terribly frightened,
-                                you realise you do not have many years to live left anyway so you consider touching the eye
-                                to see what happens.
-                            </div>
-                            <i style="color: grey">
-                                By touching the eyeball, you will be reborn and have to restart life again, losing all your levels and coins.
-                                However, you will gain <b>xp multipliers</b> for your classes and abilities equivalent to: <b>1 + the max level of the class or ability / 10.</b>
-                                This means you will learn everything again much more quickly than you did in your previous life. <span style="color: rgb(200, 0, 0)">
-                                Something tells you that the amulet might evolve after living for <b>2 whole centuries</b> and transform even further after living for
-								a <b>millennium</b> and reach its final form after <b>ten millenia</b>...
-								</span>
-                            </i>
-                            </br>
-                            <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Touch the eye</button>
-                            </br>
-                        </li>
-                        <li style="margin: 8px;" id="rebirthNote3">
-                            <div style="margin-bottom: 8px;">
-                                Your gut instinct was right. The moment you hit the grand age of 200, you hear an ominous hum coming from the amulet.
-                                A mouth emerges from its surface and begins to cackle, and proceeds to say: "So you've made it this far... Are you ready to embrace evil?"
-                            </div>
-                            <i style="color: rgb(200, 0, 0)">
-                                If you decide to embrace evil, all of your levels, coins and even max levels will be reset.
-                                You will be reborn as a fresh slate. However, you will unlock a new line of skills and gain
-                                <b><span id="evilGainDisplay"></span> evil</b>, and which will heavily impact your future lives.
-                            </i>
-                            </br>
-                                <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthTwo()">Embrace evil</button>
-                            </br>
-                        </li>
-						<li style="margin: 8px;" id="rebirthNote4">
-                            <div style="margin-bottom: 8px;">
-                                A thousand years have come and gone and yet, you still remain alive... somehow. You feel your amulet shivering again and to your surprise, you see small tendrils
-								full of eyeballs emergin from it. As you are about to drop the amulet, you hear frightening screech followed by whispers in your head... <b>"You have to embrace the Void..."</b> 
-                            </div>
-                            <i style="color: rgb(204, 0, 255)">
-                                You have unlocked <b>"The Void"</b> class category along with <b>"Void Manipulation"</b> abilities.
-                            </i>
-                        </li>
-						</br>
-						<li style="margin: 8px;" id="rebirthNote5">
-                            <div style="margin-bottom: 8px;">
-                                Ten millenia have passed... most of them spent serving the Void, yet there is still a glimpse of humanity inside of you. All of the sudden your amulet starts to glow in the distance,
-								illuminating darkness around you with the brightness of thousand suns. With the very last remnant of your free will you run to your amulet and touch it... <b>"You are now part of something
-								bigger than yourself..."</b>
-                            </div>
-                            <i style="color: rgb(255, 204, 102)">
-                                You have unlocked <b>"Galactic Council"</b> class category along with <b>"Celestial Powers"</b> abilities.
-								<i style="color: grey">
-								</br>
-                                By clicking on <b>Transcend</b>, you will be reborn once again, losing all your coins, <b>evil</b> and current levels.
-								However your max level won't be erased but multiplied with <b>Cosmic Recollection</b> ability and you will gain
-								<i style="color: rgb(24, 210, 217)">
-								<b><span id="essenceGainDisplay"></span> essence</b>, 
-								</i>
-								new ability that will boost you even further in your journey.
-								
-								</br>
-								<i style="color: rgb(200, 0, 0)">
-                                Transced will only show up if you have <b>Cosmic Recollection</b> ability unlocked!
-                                
-                            </i> 
-                            </i>
-								 </br>
-                            </i>
-                        </li>
-						<div style="margin: 8px;" id="rebirthNote6">
-                            <div style="margin-bottom: 8px;">
-                            <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthThree()">Transcend</button>
-                            </br>
-                            </div>
-                        </div>
+                    <ul id="eventsList">
+                        
                     </ul>
                 </div>
 
@@ -320,7 +235,7 @@
                             </form>
                         </li>
                         <li>
-                            <h2>Join the discord community!</h2>
+                            <h2>Join the Discord community!</h2>
                             <a href="https://discord.gg/fTRS4pHGka" target="_blank">
                                 <img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/discord_icon_130958.png" width="100" height="100"></img>
                             </a>
@@ -336,15 +251,23 @@
     </div>
 </body>
 
+<!-- Load all the files required for modding. -->
 <script type="text/javascript" src="js/game.js"></script>
 <script type="text/javascript" src="js/category.js"></script>
 <script type="text/javascript" src="js/task.js"></script>
 <script type="text/javascript" src="js/effect.js"></script>
 <script type="text/javascript" src="js/requirement.js"></script>
 <script type="text/javascript" src="js/rebirth.js"></script>
+<script type="text/javascript" src="js/event.js"></script>
 
-<script type="text/javascript" src="js/mod.js"></script>
+<!-- Load all the mod files. -->
+<script type="text/javascript" src="js/mod/general.js"></script>
+<script type="text/javascript" src="js/mod/events.js"></script>
+<script type="text/javascript" src="js/mod/jobs.js"></script>
+<script type="text/javascript" src="js/mod/skills.js"></script>
+<script type="text/javascript" src="js/mod/shop.js"></script>
 
+<!-- Load the UI and the main file which starts the game. -->
 <script type="text/javascript" src="js/ui.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
