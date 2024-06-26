@@ -123,7 +123,7 @@ function updateSidebarText() {
     document.getElementById("healthDisplay").textContent = Effect.getTotalEffect(EffectType.HEALTH).toFixed(1)
     document.getElementById("energyDisplay").textContent = Effect.getTotalEffect(EffectType.ENERGY).toFixed(1)
 
-    document.getElementById("evilDisplay").textContent = game.getSave().currency.evil.toFixed(1)
+    document.getElementById("timeDilationDisplay").textContent = game.getSave().currency.time_dilation.toFixed(1)
     // document.getElementById("evilGainDisplay").textContent = getEvilGain().toFixed(1)
     
     // document.getElementById("essenceDisplay").textContent = gameData.essence.toFixed(1)
@@ -170,8 +170,8 @@ function setSignDisplay() {
 const ageRequirementText = new HtmlElementRequirement(document.getElementById("deathText"))
 ageRequirementText.addRequirement(() => game.getSave().days / 365 >= BASE_LIFE_SPAN * Effect.getTotalEffect(EffectType.LIFESPAN))
 
-const evilDisplay = new HtmlElementRequirement(document.getElementById("evilInfo"))
-evilDisplay.addRequirement(() => game.getSave().currency.evil > 0)
+const timeDilationDisplay = new HtmlElementRequirement(document.getElementById("evilInfo"))
+timeDilationDisplay.addRequirement(() => game.getSave().currency.time_dilation > 0)
 
 const essenceDisplay = new HtmlElementRequirement(document.getElementById("essenceInfo"))
 essenceDisplay.addRequirement(() => false) // DISABLED CURRENTLY

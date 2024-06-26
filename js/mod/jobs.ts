@@ -112,3 +112,12 @@ new JobCategory("The Army", "#239672", category => {
 new JobCategory("Dark Plateau", "#662691", category => {
     
 })
+
+// Dark magic
+new JobCategory("Dark magic", "#239672", category => {
+    category.addTask("Dark magician", "", task => {
+        task.setIncome(2500)
+        task.setDifficultyMultiplier(51200)
+        task.addRequirement(new CurrencyRequirement(CurrencyType.TIME_DILATION, 2))
+    })
+})

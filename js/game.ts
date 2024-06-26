@@ -11,7 +11,7 @@ enum GameDifficulty {
 
 enum CurrencyType {
     COINS = "coins",
-    EVIL = "evil"
+    TIME_DILATION = "time_dilation"
 }
 
 type TaskType<T extends CategoryType> =
@@ -23,7 +23,7 @@ type TaskType<T extends CategoryType> =
 interface GameData {
     currency: {
         coins: number,
-        evil: number
+        time_dilation: number
     },
     ui: {
         currentTab: "jobs" | "skills" | "shop" | "rebirth" | "settings",
@@ -132,7 +132,7 @@ class Game implements IGame {
     public saveData: GameData = {
         currency: {
             coins: 0,
-            evil: 0
+            time_dilation: 10
         },
         ui: {
             currentTab: "jobs",

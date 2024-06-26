@@ -88,8 +88,8 @@ class CurrencyRequirement extends Requirement {
     }
 
     public getText() {
-        if (this.currency == CurrencyType.EVIL)
-            return `<span style="color: rgb(200, 0, 0)">${this.amount} ${this.currency}</span>`
+        if (this.currency == CurrencyType.TIME_DILATION)
+            return `<span style="color: rgb(200, 0, 0)">${this.amount} Time dilation</span>`
         if (this.currency == CurrencyType.COINS) {
             const span = document.createElement("span")
             for (let i=0; i < 4; i++)

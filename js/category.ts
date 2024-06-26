@@ -18,6 +18,7 @@ abstract class Category<T> implements ICategory<T>, IRenderable {
 
     private tableId: string
     private table: HTMLElement
+    private headerRow: HTMLElement
     private requirementRow: HTMLElement
     private addedRequirementRow: boolean = false
     protected tasks: ITask[] = []
@@ -46,7 +47,8 @@ abstract class Category<T> implements ICategory<T>, IRenderable {
     public render(isInitialRender: boolean): void {
         if (isInitialRender) {
             this.table = document.getElementById(this.tableId)
-            this.table.appendChild(createHeaderRow(this))
+            this.headerRow = createHeaderRow(this)
+            this.table.appendChild(this.headerRow)
 
             this.requirementRow = createRequirementRow()
         }
@@ -74,6 +76,17 @@ abstract class Category<T> implements ICategory<T>, IRenderable {
             this.requirementRow.classList.add("hiddenTask")
         else
             this.requirementRow.classList.remove("hiddenTask")
+
+        const firstTask = this.tasks[0]
+
+        if (firstTask !== undefined) {
+            if (!firstTask.hasCompletedRequirements()) {
+                this.requirementRow.classList.add("hiddenTask")
+                this.headerRow.classList.add("hiddenTask")
+            } else {
+                this.headerRow.classList.remove("hiddenTask")
+            }
+        }
 
         if (isInitialRender) {
             this.table.appendChild(this.requirementRow)
