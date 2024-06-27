@@ -1,7 +1,7 @@
 const UPDATE_SPEED = 20
-const BASE_LIFE_SPAN = 60
+const BASE_LIFE_SPAN = 50
 const STARTING_AGE = 18
-const DAYS_PER_SECOND = 6
+const DAYS_PER_SECOND = 10
 
 enum GameDifficulty {
     EASY = 0.9,
@@ -29,6 +29,9 @@ interface GameData {
         currentTab: "jobs" | "skills" | "shop" | "rebirth" | "settings",
         selectedJob: string,
         selectedSkill: string
+    },
+    story: {
+        wallet: "returned" | "keep_it" | "not_chosen"
     },
     difficulty: GameDifficulty
     days: number,
@@ -132,12 +135,15 @@ class Game implements IGame {
     public saveData: GameData = {
         currency: {
             coins: 0,
-            time_dilation: 10
+            time_dilation: 0
         },
         ui: {
             currentTab: "jobs",
             selectedJob: "Burger Flipper",
             selectedSkill: "Study Skills"
+        },
+        story: {
+            wallet: "not_chosen"
         },
         difficulty: GameDifficulty.DEFAULT,
         days: STARTING_AGE * 365,

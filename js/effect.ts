@@ -2,12 +2,11 @@ enum EffectType {
     EXPERIENCE,
     HAPPINESS,
     HEALTH,
-    ENERGY,
     INCOME,
     EXPENSES,
     LIFESPAN,
     GAMESPEED,
-    EVIL
+    NONE
 }
 
 class Effect {

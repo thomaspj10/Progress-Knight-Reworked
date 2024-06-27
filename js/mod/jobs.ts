@@ -1,4 +1,3 @@
-// BunMasters
 new JobCategory("BunMasters", "#55a630", category => {
     category.addTask("Burger Flipper", "Flipping burgers is hard work. You have to work long hours with minimal pay.", task => {
         task.setIncome(4)
@@ -50,7 +49,6 @@ new JobCategory("BunMasters", "#55a630", category => {
     })
 })
 
-// Yugle
 new JobCategory("Yugle", "#b52454", category => {
     category.addTask("Unpaid Intern", "", task => {
         task.setIncome(0)
@@ -60,38 +58,45 @@ new JobCategory("Yugle", "#b52454", category => {
         task.setIncome(10)
         task.setDifficultyMultiplier(200)
         task.addRequirement(new TaskRequirement("Unpaid Intern", 10))
+        task.addRequirement(new TaskRequirement("Algorithms", 10))
     })
     category.addTask("Software Engineer", "", task => {
         task.setIncome(18)
         task.setDifficultyMultiplier(400)
         task.addRequirement(new TaskRequirement("Junior Developer", 10))
+        task.addRequirement(new TaskRequirement("Software Architecture", 10))
     })
     category.addTask("Project Lead", "", task => {
         task.setIncome(25)
         task.setDifficultyMultiplier(800)
         task.addRequirement(new TaskRequirement("Software Engineer", 10))
+        task.addRequirement(new TaskRequirement("Algorithms", 25))
     })
     category.addTask("Team Lead", "", task => {
         task.setIncome(45)
         task.setDifficultyMultiplier(1600)
         task.addRequirement(new TaskRequirement("Project Lead", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 25))
     })
     category.addTask("Senior Architect", "", task => {
         task.setIncome(100)
         task.setDifficultyMultiplier(3200)
         task.addRequirement(new TaskRequirement("Team Lead", 10))
+        task.addRequirement(new TaskRequirement("Software Architecture", 50))
     })
     category.addTask("Division Lead", "", task => {
         task.setIncome(250)
         task.setDifficultyMultiplier(6400)
         task.addRequirement(new TaskRequirement("Senior Architect", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 50))
     })
     category.addTask("Product Manager", "", task => {
         task.setIncome(500)
         task.setDifficultyMultiplier(12800)
         task.addRequirement(new TaskRequirement("Division Lead", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 100))
     })
-    category.addTask("CTO", "", task => {
+    category.addTask("Yugle CTO", "", task => {
         task.setIncome(1500)
         task.setDifficultyMultiplier(25600)
         task.addRequirement(new TaskRequirement("Product Manager", 10))
@@ -99,25 +104,92 @@ new JobCategory("Yugle", "#b52454", category => {
     category.addTask("Yugle CEO", "", task => {
         task.setIncome(2500)
         task.setDifficultyMultiplier(51200)
-        task.addRequirement(new TaskRequirement("CTO", 10))
+        task.addRequirement(new TaskRequirement("Yugle CTO", 10))
     })
 })
 
-// The Army
 new JobCategory("The Army", "#239672", category => {
-    
+    category.addTask("Private", "", task => {
+        task.setIncome(5)
+        task.setDifficultyMultiplier(200)
+    })
+    category.addTask("Corporal", "", task => {
+        task.setIncome(12)
+        task.setDifficultyMultiplier(400)
+        task.addRequirement(new TaskRequirement("Private", 10))
+    })
+    category.addTask("Sergeant", "", task => {
+        task.setIncome(20)
+        task.setDifficultyMultiplier(800)
+        task.addRequirement(new TaskRequirement("Corporal", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 10))
+    })
+    category.addTask("Major", "", task => {
+        task.setIncome(40)
+        task.setDifficultyMultiplier(1600)
+        task.addRequirement(new TaskRequirement("Sergeant", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 25))
+    })
+    category.addTask("Corporal", "", task => {
+        task.setIncome(85)
+        task.setDifficultyMultiplier(3200)
+        task.addRequirement(new TaskRequirement("Major", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 50))
+    })
+    category.addTask("Colonel", "", task => {
+        task.setIncome(225)
+        task.setDifficultyMultiplier(6400)
+        task.addRequirement(new TaskRequirement("Corporal", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 100))
+    })
+    category.addTask("General", "", task => {
+        task.setIncome(600)
+        task.setDifficultyMultiplier(12800)
+        task.addRequirement(new TaskRequirement("Colonel", 10))
+        task.addRequirement(new TaskRequirement("Leadership", 200))
+    })
 })
 
-// Dark Plateau
 new JobCategory("Dark Plateau", "#662691", category => {
-    
-})
-
-// Dark magic
-new JobCategory("Dark magic", "#239672", category => {
-    category.addTask("Dark magician", "", task => {
-        task.setIncome(2500)
-        task.setDifficultyMultiplier(51200)
-        task.addRequirement(new CurrencyRequirement(CurrencyType.TIME_DILATION, 2))
+    category.addTask("Junior Scientist", "", task => {
+        task.setIncome(35)
+        task.setDifficultyMultiplier(400)
+        task.addRequirement(new TaskRequirement("Quantum Science", 50))
+    })
+    category.addTask("Scientist", "", task => {
+        task.setIncome(135)
+        task.setDifficultyMultiplier(400 * 2)
+        task.addRequirement(new TaskRequirement("Junior Scientist", 10))
+        task.addRequirement(new TaskRequirement("Quantum Science", 100))
+    })
+    category.addTask("Senior Scientist", "", task => {
+        task.setIncome(200)
+        task.setDifficultyMultiplier(400 * 4)
+        task.addRequirement(new TaskRequirement("Scientist", 10))
+        task.addRequirement(new TaskRequirement("Quantum Science", 150))
+    })
+    category.addTask("Project Manager", "", task => {
+        task.setIncome(450)
+        task.setDifficultyMultiplier(400 * 8)
+        task.addRequirement(new TaskRequirement("Senior Scientist", 10))
+        task.addRequirement(new TaskRequirement("Quantum Science", 200))
+    })
+    category.addTask("Operation Nova Scientist", "", task => {
+        task.setIncome(800)
+        task.setDifficultyMultiplier(400 * 16)
+        task.addRequirement(new TaskRequirement("Project Manager", 10))
+        task.addRequirement(new TaskRequirement("Quantum Science", 300))
+    })
+    category.addTask("Operation Nova Manager", "", task => {
+        task.setIncome(1500)
+        task.setDifficultyMultiplier(400 * 32)
+        task.addRequirement(new TaskRequirement("Operation Nova Scientist", 10))
+        task.addRequirement(new TaskRequirement("Quantum Science", 400))
+    })
+    category.addTask("Operation Nova Investor", "", task => {
+        task.setIncome(3500)
+        task.setDifficultyMultiplier(400 * 64)
+        task.addRequirement(new TaskRequirement("Operation Nova Manager", 10))
+        task.addRequirement(new TaskRequirement("Quantum Science", 500))
     })
 })

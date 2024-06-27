@@ -121,7 +121,6 @@ function updateSidebarText() {
 
     document.getElementById("happinessDisplay").textContent = Effect.getTotalEffect(EffectType.HAPPINESS).toFixed(1)
     document.getElementById("healthDisplay").textContent = Effect.getTotalEffect(EffectType.HEALTH).toFixed(1)
-    document.getElementById("energyDisplay").textContent = Effect.getTotalEffect(EffectType.ENERGY).toFixed(1)
 
     document.getElementById("timeDilationDisplay").textContent = game.getSave().currency.time_dilation.toFixed(1)
     // document.getElementById("evilGainDisplay").textContent = getEvilGain().toFixed(1)

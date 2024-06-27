@@ -12,14 +12,9 @@ new Effect(EffectType.HAPPINESS, () => {
     return 1
 })
 
-// Happiness * Health = Energy
-new Effect(EffectType.ENERGY, () => {
-    return Effect.getTotalEffect(EffectType.HAPPINESS) * Effect.getTotalEffect(EffectType.HEALTH)
-})
-
 // Experience *= Energy
 new Effect(EffectType.EXPERIENCE, () => {
-    return Effect.getTotalEffect(EffectType.ENERGY)
+    return Effect.getTotalEffect(EffectType.HEALTH) * Effect.getTotalEffect(EffectType.HAPPINESS)
 })
 
 new RebirthOption("regularRebirth", () => {

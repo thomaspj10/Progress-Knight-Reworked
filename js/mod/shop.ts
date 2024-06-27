@@ -1,12 +1,11 @@
-// Housing
 new ItemCategory("Housing", "#55a630", ItemCategoryType.SINGLE, category => {
     category.addTask("Parents Basement", "", task => {
-        task.setCost(0)
+        task.setCost(5)
         task.setEffect(EffectType.HAPPINESS, () => {
             return 1.1
         })
         task.setEffectText("Happiness")
-        task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, task.getCost() * 100))
+        task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, 0))
     })
     category.addTask("Shared Apartment", "", task => {
         task.setCost(15)
@@ -82,7 +81,6 @@ new ItemCategory("Housing", "#55a630", ItemCategoryType.SINGLE, category => {
     })
 })
 
-// Food
 new ItemCategory("Food", "#217aa3", ItemCategoryType.SINGLE, category => {
     category.addTask("Student Cuisine", "", task => {
         task.setCost(10)
@@ -150,7 +148,6 @@ new ItemCategory("Food", "#217aa3", ItemCategoryType.SINGLE, category => {
     })
 })
 
-// Companions
 new ItemCategory("Companions", "#a83264", ItemCategoryType.MULTI, category => {
     category.addTask("Cleaner", "", task => {
         task.setCost(100)
@@ -161,7 +158,7 @@ new ItemCategory("Companions", "#a83264", ItemCategoryType.MULTI, category => {
         task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, task.getCost() * 100))
     })
     category.addTask("Research Assistant", "", task => {
-        task.setCost(500)
+        task.setCost(350)
         task.setEffect(EffectType.EXPERIENCE, () => {
             return 1.5
         }, task => {
@@ -181,7 +178,7 @@ new ItemCategory("Companions", "#a83264", ItemCategoryType.MULTI, category => {
         task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, task.getCost() * 100))
     })
     category.addTask("Life Coach", "", task => {
-        task.setCost(5000)
+        task.setCost(2000)
         task.setEffect(EffectType.HAPPINESS, () => {
             return 1.25
         })
@@ -189,19 +186,27 @@ new ItemCategory("Companions", "#a83264", ItemCategoryType.MULTI, category => {
         task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, task.getCost() * 100))
     })
     category.addTask("Fitness Instructor", "", task => {
-        task.setCost(100000)
-        task.setEffect(EffectType.ENERGY, () => {
+        task.setCost(5000)
+        task.setEffect(EffectType.HEALTH, () => {
             return 1.25
         })
         task.setEffectText("Health")
         task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, task.getCost() * 100))
     })
     category.addTask("Personal Medic", "", task => {
-        task.setCost(10000000)
+        task.setCost(10000)
         task.setEffect(EffectType.HEALTH, () => {
             return 1.5
         })
         task.setEffectText("Health")
         task.addRequirement(new CurrencyRequirement(CurrencyType.COINS, task.getCost() * 100))
+    })
+    category.addTask("Nova", "", task => {
+        task.setCost(1e6)
+        task.setEffect(EffectType.INCOME, () => {
+            return 2.5
+        })
+        task.setEffectText("Income")
+        task.addRequirement(new TaskRequirement("Operation Nova Investor", 1))
     })
 })
